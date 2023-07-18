@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Call Example</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <table id="postTable">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          var tableBody = document.querySelector('#postTable tbody');
+          for (var i = 0; i < response.length; i++) {
+            var post = response[i];
+            var row = document.createElement('tr');
+            row.innerHTML = '<td>' + post.userId + '</td>' +
+                            '<td>' + post.id + '</td>' +
+                            '<td>' + post.title + '</td>' +
+                            '<td>' + post.body + '</td>';
+            tableBody.appendChild(row);
+          }
+        } else {
+          console.log('Request failed. Status: ' + xhr.status);
+        }
+      };
+      xhr.send();
+    });
+  </script>
+</body>
+</html>

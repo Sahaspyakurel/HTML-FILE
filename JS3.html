@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form onSubmit=" "formSubmit(); return flase">
+    <h1>Add User</h1>
+    <input type="text" id="firstName" placeholder=" Enter frst name" />
+    <input type="text" id="lastName" placeholder=" Enter last name" />
+    <input type="Submit" value="Submit" />
+</form> 
+<div >
+    <h3 id = "Username">
+
+    </h3>
+   
+</div>
+<script>
+    function formSubmit(){
+        const firstName = document.querySelector("#firstName");
+        const lasttName = document.querySelector("#lastName");
+        console.log("your name is " + firstName.value + " " + lastName.value);
+    }
+    print.log("your name is " + firstName.value + " " + lastName.value);
+</script>
+
+</body>
+</html>
